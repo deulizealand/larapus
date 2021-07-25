@@ -96,7 +96,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i> Login
+                                    <i class="fa fa-sign-in-alt"></i> Login
                                 </button>
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Lupa password</a>
                             </div>
