@@ -79,6 +79,10 @@ body {
   outline: 0 !important;
 }
 
+.tab-pane {
+  padding: 15px 0px 15px 0px;
+}
+
 hr {
   box-sizing: content-box;
   height: 0;

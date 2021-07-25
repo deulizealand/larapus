@@ -9,14 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +32,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @if (Auth::check())
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Dashboard</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -45,7 +46,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                                 </li>
                             @endif
                         @else
@@ -76,5 +77,11 @@
             @yield('content')
         </main>
     </div>
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 </body>
 </html>
