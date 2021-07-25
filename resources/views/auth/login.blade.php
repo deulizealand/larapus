@@ -66,7 +66,7 @@
                         </div>
                     </form> -->
 
-                    {!! Form::open(['url'=>'login']) !!}
+                    {!! Form::open(['route'=>'login']) !!}
                         @csrf    
                         <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
                             {!! Form::label('email', 'Alamat Email', ['class'=>'col-md-4 col-form-label text-md-right']) !!}

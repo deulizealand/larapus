@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </form> -->
-                    {!! Form::open(['url'=>'/register']) !!}
+                    {!! Form::open(['route'=>'register']) !!}
                         @csrf
 
                         <div class="form-group row{{ $errors->has('name') ? ' has-error' : '' }}">

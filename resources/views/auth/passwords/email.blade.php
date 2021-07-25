@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <!-- <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -38,7 +38,26 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
+
+                    {!! Form::open(['route'=>'password.email'])!!}
+                        @csrf
+                        <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
+                            {!! Form::label('email', 'Alamat Email', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
+                            <div class="col-md-6">
+                                {!! Form::email('email', null, ['class'=>'form-control']) !!}
+                                {!! $errors->first('email', '<p class="valid-feedback">:message</p>') !!}
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-envelope"></i> Kirim link reset password
+                                </button>
+                            </div>
+                        </div>
+
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
