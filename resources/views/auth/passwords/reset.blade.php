@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <!-- <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -56,7 +56,44 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
+
+                    {!! Form::open(['route'=>'password.update'])!!}
+                        @csrf
+                        <input type="hidden" name="token" value="{{ $token }}">
+
+                        <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
+                            {!! Form::label('email', 'Alamat Email', ['class'=>'col-md-4 col-form-label text-md-right'])!!}
+                            <div class="col-md-6">
+                                {!! Form::email('email', isset($email) ? $email : null, ['class'=>'form-control']) !!}
+                                {!! $errors->first('email', '<p class="invalid-feedback">:message</p>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}">
+                            {!! Form::label('password', 'Password', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
+                            <div class="col-md-6">
+                                {!! Form::password('password', ['class'=>'form-control']) !!}
+                                {!! $errors->first('password', '<p class="invalid-feedback">:message</p>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            {!! Form::label('password_confirmation', 'Konfirmasi Password', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
+                            <div class="col-md-6">
+                                {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
+                                {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-refresh"></i> Reset Password
+                                </button>
+                            </div>
+                        </div>
+
                 </div>
             </div>
         </div>
