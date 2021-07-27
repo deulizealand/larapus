@@ -37,6 +37,7 @@
                     <ul class="navbar-nav mr-auto">
                         @if (Auth::check())
                             <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('authors.index') }}">Penulis</a></li>
                         @endif
                     </ul>
 
@@ -84,11 +85,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/all.min.js') }}"></script>
-    <script src="{{ asset('js/fontawesome.min.js') }}"></script>
+    @yield('scripts')
+    <!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/all.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/fontawesome.min.js') }}"></script> -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 </body>
 </html>
