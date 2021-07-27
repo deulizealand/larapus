@@ -20,7 +20,7 @@ class AuthorsController extends Controller
         // return view('authors.index');
         if($request->ajax()) {
             $authors = Author::select(['id', 'name']);
-            return DataTables::of($authors->id)->make(true);
+            return DataTables::of($authors)->make(true);
         }
 
         $html = $htmlBuilder->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Nama']);

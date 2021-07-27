@@ -16,7 +16,9 @@
                     <h2 class="panel-title">Penulis</h2>
                 </div>
                 <div class="card-body">
-                    {!! $html->table(['class'=>'table-striped']) !!}
+                    <div>
+                        {!! $html->table(['class'=>'table-striped']) !!}
+                    </div>
                 </div>
                 
             </div>
