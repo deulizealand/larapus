@@ -37,8 +37,10 @@
                     <ul class="navbar-nav mr-auto">
                         @if (Auth::check())
                             <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Dashboard</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('authors.index') }}">Penulis</a></li>
                         @endif
+                        @role('admin')
+                            <li class="nav-item"><a class="nav-link" href="{{ route('authors.index') }}">Penulis</a></li>
+                        @endrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -88,9 +90,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     @yield('scripts')
-    <!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
-    <!-- <script src="{{ asset('js/all.min.js') }}"></script> -->
-    <!-- <script src="{{ asset('js/fontawesome.min.js') }}"></script> -->
-    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/all.min.js') }}"></script>
+    <script src="{{ asset('js/fontawesome.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}" ></script> -->
 </body>
 </html>
