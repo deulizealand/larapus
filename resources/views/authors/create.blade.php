@@ -7,27 +7,23 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/home') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Penulis</li>
+                    <li class="breadcrumb-item">Penulis</li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah Penulis</li>
                 </ol>
             </nav>
 
             <div class="card">
                 <div class="card-header">
-                    <h2 class="panel-title">Penulis</h2>
+                    <h2 class="panel-title">Tambah Penulis</h2>
                 </div>
                 <div class="card-body">
-                    <div>
-                        <p> <a class="btn btn-primary" href="{{ route('authors.create') }}">Tambah</a> </p>
-                        {!! $html->table(['class'=>'table-striped']) !!}
-                    </div>
+                    {!! Form::open(['url' => route('authors.store'), 'method' => 'post']) !!}
+                        @csrf
+                        @include('authors._form')
+                    {!! Form::close() !!}
                 </div>
-                
             </div>
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-    {!! $html->scripts() !!}
 @endsection
