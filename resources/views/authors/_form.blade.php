@@ -2,7 +2,7 @@
     {!! Form::label('name', 'Nama', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
     <div class="col-md-4">
         {!! Form::text('name', null, ['class'=>'form-control']) !!}
-        {!! $errors->first('name', '<span class="help-block">:message</span>') !!}
+        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

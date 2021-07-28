@@ -46,7 +46,7 @@
                             {!! Form::label('email', 'Alamat Email', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
                                 {!! Form::email('email', null, ['class'=>'form-control']) !!}
-                                {!! $errors->first('email', '<p class="valid-feedback">:message</p>') !!}
+                                {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
                             </div>
                         </div>
                         <div class="form-group row mb-0">

@@ -17,8 +17,8 @@
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
 
 </head>
 <body>
@@ -80,6 +80,7 @@
         </nav>
 
         <main class="py-4">
+            @include('layouts._flash')
             @yield('content')
         </main>
     </div>
