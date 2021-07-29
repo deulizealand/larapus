@@ -30,7 +30,7 @@ class AuthorsController extends Controller
         if($request->ajax()) {
             $authors = Author::select(['id', 'name']);
             return DataTables::of($authors)->addColumn('action', function($author){
-                return view('authors._action', 
+                return view('datatable._action', 
                 ['edit_url' => route('authors.edit', $author->id)]);
             })->make(true);
         }
