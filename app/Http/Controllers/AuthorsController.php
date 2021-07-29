@@ -21,10 +21,18 @@ class AuthorsController extends Controller
         // return view('authors.index');
         if($request->ajax()) {
             $authors = Author::select(['id', 'name']);
-            return DataTables::of($authors)->make(true);
+            // return DataTables::of($authors)->make(true);
+            return DataTables::of($authors)
+            ->addColumn('action', function($author) {
+                return view('datatable._action', [
+                    'edit_url' => route('authors.edit', $author->id),
+                ]);
+            })->make(true);
         }
 
-        $html = $htmlBuilder->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Nama']);
+        // $html = $htmlBuilder->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Nama']);
+        $html = $htmlBuilder->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Nama'])
+                            ->addColumn(['data' => 'action', 'name' => 'action', 'title' => '']);
         
         return view('authors.index')->with(compact('html'));
     }
