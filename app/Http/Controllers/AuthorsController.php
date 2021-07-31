@@ -121,6 +121,11 @@ class AuthorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Author::destroy($id);
+        Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Penulis berhasil dihapus"
+        ]);
+        return redirect()->route('authors.index');
     }
 }
