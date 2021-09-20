@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use App\Book;
+use App\BorrowLog;
+use App\Exceptions\BookException;
 
 class User extends Authenticatable
 {
@@ -37,4 +40,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function borrow(Book $book)
+    {
+        // cek apakah buku ini sudah dipinjam oleh user
+        if($this->borrowLogs()->where('book_id', $book->id)->where('is_returned', 0)->count() > 0) {
+            throw new BookException("Buku $book->title sedang Anda dipinjam");
+        }
+        $borrowLog = BorrowLog::create(['user_id' => $this->id, 'book_id' => $book_id]);
+        return $borrowLog;
+    }
+
+    public function borrowLogs()
+    {
+        return $this->hasMany('App\BorrowLog');
+    }
 }
