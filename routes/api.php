@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+    Route::resource('authors', 'AuthorsController');
+    Route::resource('books', 'BooksController');
+});
+
+Route::get('/', 'api\GuestController@index');
